@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jeevithpriyan V | Embedded Portfolio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#030712;
+color:white;
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+width:100%;
+background:#020617;
+padding:15px 10%;
+display:flex;
+justify-content:space-between;
+z-index:100;
+border-bottom:1px solid rgba(0,200,255,0.2);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:15px;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle,#071c36,#020617);
+}
+
+.hero h1{
+font-size:60px;
+color:#38bdf8;
+text-shadow:0 0 20px #38bdf8;
+}
+
+.hero p{
+margin-top:10px;
+font-size:20px;
+}
+
+.btn{
+margin-top:30px;
+padding:14px 30px;
+background:#0ea5e9;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+box-shadow:0 0 15px #0ea5e9;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #0ea5e9;
+}
+
+/* SECTION */
+
+section{
+padding:80px 10%;
+}
+
+h2{
+color:#38bdf8;
+margin-bottom:30px;
+font-size:32px;
+}
+
+/* ABOUT */
+
+.about p{
+line-height:1.7;
+max-width:900px;
+}
+
+/* SKILLS */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.skill{
+padding:25px;
+background:#061426;
+border-radius:10px;
+border:1px solid rgba(56,189,248,0.2);
+transition:0.3s;
+}
+
+.skill:hover{
+box-shadow:0 0 20px #38bdf8;
+transform:translateY(-5px);
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.project{
+background:#061426;
+padding:25px;
+border-radius:10px;
+border:1px solid rgba(56,189,248,0.2);
+transition:0.3s;
+}
+
+.project:hover{
+box-shadow:0 0 20px #38bdf8;
+}
+
+/* CONTACT */
+
+.contact p{
+margin-bottom:10px;
+}
+
+form{
+max-width:500px;
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+input,textarea{
+padding:12px;
+border:none;
+border-radius:5px;
+background:#08192e;
+color:white;
+}
+
+button{
+padding:12px;
+background:#0ea5e9;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(56,189,248,0.2);
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<nav>
+<div>Jeevithpriyan</div>
+
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>Jeevithpriyan V</h1>
+
+<p>Electronics Enthusiast | Embedded Systems Learner</p>
+
+<button class="btn" onclick="document.getElementById('about').scrollIntoView()">
+Learn More About Me
+</button>
+
+</section>
+
+
+<section id="about" class="about">
+
+<h2>About Me</h2>
+
+<p>
+I am a curious and passionate learner with a strong interest in electronics, technology, and embedded systems. I enjoy exploring how electronic circuits, sensors, and microcontrollers work together to create intelligent systems. My learning approach is highly hands-on, where I experiment with hardware, analyze circuit behavior, and continuously test and improve ideas to better understand electronic systems. I am especially interested in understanding how components interact, designing simple circuits, and integrating hardware with programming to build practical solutions. With a strong problem-solving mindset, I enjoy troubleshooting technical challenges and learning new technologies that expand my knowledge in electronics and embedded development. I am motivated by innovation and continuous learning, and I aim to keep developing my skills while exploring new possibilities in electronics and technology to build useful and efficient systems for the future.
+</p>
+
+<br><br>
+
+<a href="#" class="btn">Download Resume</a>
+
+</section>
+
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="skill">Arduino Programming (C++)</div>
+<div class="skill">ESP32 Development</div>
+<div class="skill">Basic Circuit Design</div>
+<div class="skill">Sensor Interfacing</div>
+<div class="skill">Embedded Systems Basics</div>
+<div class="skill">Electronics Troubleshooting</div>
+<div class="skill">Hardware Experimentation</div>
+
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>RFID Security System</h3>
+<p>ESP32 based RFID authentication system using RC522 module and LCD display.</p>
+</div>
+
+<div class="project">
+<h3>IoT LED Control</h3>
+<p>ESP32 controlled LED system using mobile app.</p>
+</div>
+
+<div class="project">
+<h3>IR Remote Decoder</h3>
+<p>Decode IR remote signals using ESP32 and IR receiver module.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<p>Email: jeevithpriyan06@gmail.com</p>
+
+<p>
+LinkedIn:
+<a href="https://www.linkedin.com/in/jeevithpriyan-v-a08a083a5" target="_blank">
+View Profile
+</a>
+</p>
+
+
+<form>
+
+<input type="text" placeholder="Name">
+
+<input type="email" placeholder="Email">
+
+<textarea rows="5" placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Jeevithpriyan V</p>
+
+</footer>
+
+</body>
+
+</html>
