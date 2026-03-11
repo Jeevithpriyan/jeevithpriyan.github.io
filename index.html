@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jeevithpriyan V | Embedded Portfolio</title>
+<title>Jeevithpriyan V | Portfolio</title>
 
 <style>
 
@@ -13,40 +12,61 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
 background:#030712;
 color:white;
 scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* PCB Background */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(90deg, rgba(0,180,255,0.1) 1px, transparent 1px),
+linear-gradient(rgba(0,180,255,0.1) 1px, transparent 1px);
+background-size:40px 40px;
+animation:pcbmove 8s linear infinite;
+z-index:-1;
+}
+
+@keyframes pcbmove{
+0%{transform:translateY(0)}
+100%{transform:translateY(40px)}
+}
+
+/* Navbar */
 
 nav{
 position:fixed;
 width:100%;
+top:0;
 background:#020617;
 padding:15px 10%;
 display:flex;
 justify-content:space-between;
-z-index:100;
-border-bottom:1px solid rgba(0,200,255,0.2);
+border-bottom:1px solid rgba(0,191,255,0.2);
+z-index:10;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-font-size:15px;
 }
 
 nav a:hover{
 color:#38bdf8;
 }
 
-/* HERO */
+/* Hero */
 
 .hero{
 height:100vh;
@@ -55,7 +75,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:radial-gradient(circle,#071c36,#020617);
+background:radial-gradient(circle,#0b1c36,#020617);
 }
 
 .hero h1{
@@ -64,14 +84,15 @@ color:#38bdf8;
 text-shadow:0 0 20px #38bdf8;
 }
 
-.hero p{
+.hero h2{
+font-size:22px;
 margin-top:10px;
-font-size:20px;
+opacity:0.9;
 }
 
 .btn{
-margin-top:30px;
-padding:14px 30px;
+margin-top:25px;
+padding:14px 28px;
 background:#0ea5e9;
 border:none;
 border-radius:6px;
@@ -86,26 +107,34 @@ transform:scale(1.05);
 box-shadow:0 0 25px #0ea5e9;
 }
 
-/* SECTION */
+/* Sections */
 
 section{
 padding:80px 10%;
 }
 
 h2{
-color:#38bdf8;
-margin-bottom:30px;
 font-size:32px;
+margin-bottom:25px;
+color:#38bdf8;
 }
 
-/* ABOUT */
+/* About */
 
 .about p{
 line-height:1.7;
 max-width:900px;
 }
 
-/* SKILLS */
+.education{
+margin-top:20px;
+background:#061426;
+padding:20px;
+border-radius:10px;
+border:1px solid rgba(56,189,248,0.2);
+}
+
+/* Skills */
 
 .skills{
 display:grid;
@@ -126,27 +155,57 @@ box-shadow:0 0 20px #38bdf8;
 transform:translateY(-5px);
 }
 
-/* PROJECTS */
+/* Projects */
 
 .projects{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-.project{
+.project-card{
 background:#061426;
 padding:25px;
 border-radius:10px;
 border:1px solid rgba(56,189,248,0.2);
+cursor:pointer;
 transition:0.3s;
 }
 
-.project:hover{
+.project-card:hover{
 box-shadow:0 0 20px #38bdf8;
 }
 
-/* CONTACT */
+/* Popup */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:#061426;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+width:90%;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
+color:#38bdf8;
+}
+
+/* Contact */
 
 .contact p{
 margin-bottom:10px;
@@ -176,12 +235,13 @@ border-radius:5px;
 cursor:pointer;
 }
 
-/* FOOTER */
+/* Footer */
 
 footer{
 text-align:center;
 padding:30px;
 border-top:1px solid rgba(56,189,248,0.2);
+margin-top:40px;
 }
 
 </style>
@@ -192,6 +252,7 @@ border-top:1px solid rgba(56,189,248,0.2);
 <body>
 
 <nav>
+
 <div>Jeevithpriyan</div>
 
 <div>
@@ -208,10 +269,10 @@ border-top:1px solid rgba(56,189,248,0.2);
 
 <h1>Jeevithpriyan V</h1>
 
-<p>Electronics Enthusiast | Embedded Systems Learner</p>
+<h2>Student – BE Electronics and Communication Engineering</h2>
 
-<button class="btn" onclick="document.getElementById('about').scrollIntoView()">
-Learn More About Me
+<button class="btn" onclick="document.getElementById('contact').scrollIntoView()">
+Contact
 </button>
 
 </section>
@@ -222,12 +283,20 @@ Learn More About Me
 <h2>About Me</h2>
 
 <p>
-I am a curious and passionate learner with a strong interest in electronics, technology, and embedded systems. I enjoy exploring how electronic circuits, sensors, and microcontrollers work together to create intelligent systems. My learning approach is highly hands-on, where I experiment with hardware, analyze circuit behavior, and continuously test and improve ideas to better understand electronic systems. I am especially interested in understanding how components interact, designing simple circuits, and integrating hardware with programming to build practical solutions. With a strong problem-solving mindset, I enjoy troubleshooting technical challenges and learning new technologies that expand my knowledge in electronics and embedded development. I am motivated by innovation and continuous learning, and I aim to keep developing my skills while exploring new possibilities in electronics and technology to build useful and efficient systems for the future.
+I am a curious and passionate learner with a strong interest in electronics, technology, and embedded systems. I enjoy exploring how electronic circuits, sensors, and microcontrollers work together to create intelligent systems. My learning approach is highly hands-on, where I experiment with hardware, analyze circuit behavior, and continuously test and improve ideas to better understand electronic systems.
 </p>
 
-<br><br>
+<div class="education">
 
-<a href="#" class="btn">Download Resume</a>
+<h3>Education</h3>
+
+<p>
+Student – BE Electronics and Communication Engineering<br>
+C Abdul Hakeem College of Engineering and Technology<br>
+Melvisharam, Ranipet, Tamil Nadu
+</p>
+
+</div>
 
 </section>
 
@@ -253,28 +322,75 @@ I am a curious and passionate learner with a strong interest in electronics, tec
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2>Projects Overview</h2>
 
 <div class="projects">
 
-<div class="project">
-<h3>RFID Security System</h3>
-<p>ESP32 based RFID authentication system using RC522 module and LCD display.</p>
+<div class="project-card" onclick="openModal('iot')">
+IoT Projects
 </div>
 
-<div class="project">
-<h3>IoT LED Control</h3>
-<p>ESP32 controlled LED system using mobile app.</p>
+<div class="project-card" onclick="openModal('electronics')">
+Electronics Projects
 </div>
 
-<div class="project">
-<h3>IR Remote Decoder</h3>
-<p>Decode IR remote signals using ESP32 and IR receiver module.</p>
+<div class="project-card" onclick="openModal('electrical')">
+Electrical Projects
 </div>
 
 </div>
 
 </section>
+
+
+<!-- MODALS -->
+
+<div id="iot" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('iot')">X</span>
+<h3>IoT Projects</h3>
+<ul>
+<li>Home Automation</li>
+<li>IoT Based Agricultural System</li>
+<li>IoT Weather Monitoring System</li>
+<li>Plant Monitoring System</li>
+<li>ESP Based IoT Systems</li>
+</ul>
+</div>
+</div>
+
+
+<div id="electronics" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('electronics')">X</span>
+<h3>Electronics Projects</h3>
+<ul>
+<li>IR Remote Control</li>
+<li>Distance Measurement using Ultrasonic Sensor</li>
+<li>Object Detection using IR Sensor</li>
+<li>Temperature and Humidity Measurement System</li>
+<li>RFID Based Security System</li>
+<li>RFID Attendance System</li>
+<li>Obstacle Avoiding Robot</li>
+<li>Line Following Robot</li>
+<li>Sensor Based Automation</li>
+</ul>
+</div>
+</div>
+
+
+<div id="electrical" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('electrical')">X</span>
+<h3>Electrical Projects</h3>
+<ul>
+<li>Battery Management System</li>
+<li>Solar Energy Management</li>
+<li>Solar Tracking System</li>
+<li>Wireless Power Transfer</li>
+</ul>
+</div>
+</div>
 
 
 <section id="contact" class="contact">
@@ -289,7 +405,6 @@ LinkedIn:
 View Profile
 </a>
 </p>
-
 
 <form>
 
@@ -311,6 +426,19 @@ View Profile
 <p>© 2026 Jeevithpriyan V</p>
 
 </footer>
+
+
+<script>
+
+function openModal(id){
+document.getElementById(id).style.display="flex";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+}
+
+</script>
 
 </body>
 
